@@ -337,7 +337,6 @@ class TypeName : ComponentBase
         var componentWithParameters = $$"""
 public class {{componentName}} : MudComponentBase
 {
-    // We add the parameter here even though it's marked as illegal. This prevents MUD0002 from triggering in this case.
     [Parameter]
     public string Color { get; set; }
 
@@ -384,7 +383,6 @@ class TypeName : ComponentBase
         var componentWithParameters = $$"""
 public class {{componentName}} : MudComponentBase
 {
-    // We add the parameter here even though it's marked as illegal. This prevents MUD0002 from triggering in this case.
     [Parameter]
     public string Color { get; set; }
 
