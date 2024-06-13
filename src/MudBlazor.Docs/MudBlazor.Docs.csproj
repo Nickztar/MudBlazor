@@ -125,3 +125,4 @@
     <Content Remove="sasscompiler.json" />
   </ItemGroup>
 
+</Project>
