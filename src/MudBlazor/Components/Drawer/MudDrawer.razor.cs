@@ -454,6 +454,11 @@ namespace MudBlazor
             if (browserViewportEventArgs.IsImmediate)
             {
                 _lastUpdatedBreakpoint = browserViewportEventArgs.Breakpoint;
+                if (!IsResponsiveOrMini())
+                {
+                    return;
+                }
+                
                 if (HandleBreakpointNone())
                 {
                     await InitialOpenState(false);
