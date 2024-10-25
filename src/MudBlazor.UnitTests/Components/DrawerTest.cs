@@ -287,7 +287,7 @@ namespace MudBlazor.UnitTests.Components
             comp.FindAll("aside.mud-drawer--closed.mud-drawer-responsive").Count.Should().Be(1);
             comp.Instance.Drawer.Open.Should().BeFalse();
         }
-        
+
 
         [Test]
         public async Task ResponsiveClosed_ResizeMultiple_CheckStates()
@@ -568,8 +568,8 @@ namespace MudBlazor.UnitTests.Components
 
             comp.FindAll("div.mud-drawer-open-responsive-md-right").Count.Should().Be(0);
         }
-        
-        
+
+
         [Test, Combinatorial]
         public void NonResponsiveKeepInitialOpen_AllBreakpoints(
             [Values(
@@ -590,24 +590,24 @@ namespace MudBlazor.UnitTests.Components
                 Breakpoint.Always
             )] Breakpoint breakpoint,
             [Values(
-                true, 
+                true,
                 false
             )] bool initialState)
         {
             _ = AddBrowserViewportService(BreakpointBrowserAssociatedSize(breakpoint));
             var comp = Context.RenderComponent<DrawerNonResponsiveTest>(Parameter(nameof(DrawerNonResponsiveTest.InitialOpenState), initialState));
-            
+
             var expectedDrawerCount = initialState ? 1 : 0;
-            
+
             comp.FindAll("aside.mud-drawer--open.mud-drawer-temporary").Count.Should().Be(expectedDrawerCount);
             comp.FindAll("aside+.mud-drawer-overlay").Count.Should().Be(expectedDrawerCount);
             comp.Instance.Drawer.Open.Should().Be(initialState);
-            
+
             // Make sure that we can toggle the drawer without issues
             comp.Find("#toggle-drawer-button").Click();
-            
+
             var expectedToggledDrawerCount = initialState ? 0 : 1;
-            
+
             comp.FindAll("aside.mud-drawer--open.mud-drawer-temporary").Count.Should().Be(expectedToggledDrawerCount);
             comp.FindAll("aside+.mud-drawer-overlay").Count.Should().Be(expectedToggledDrawerCount);
             comp.Instance.Drawer.Open.Should().Be(!initialState);

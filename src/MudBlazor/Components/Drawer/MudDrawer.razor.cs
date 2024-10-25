@@ -458,7 +458,7 @@ namespace MudBlazor
                 {
                     return;
                 }
-                
+
                 if (HandleBreakpointNone())
                 {
                     await InitialOpenState(false);
